@@ -3,26 +3,28 @@
 #include <ctime>
 #include <fstream>
 
-void drawBoard(std::string board){
-    std::cout <<"------------------" << std::endl;
-    std::cout <<"| " <<  board[0] << "  |  " << board[1] << "  |  " << board[2] << "  |" << std::endl;
-    std::cout <<  "-----|-----|------" << std::endl;
-    std::cout <<"| " <<  board[3] << "  |  " << board[4] << "  |  " << board[5]  << "  |"<< std::endl;
-    std::cout << "-----|-----|------" << std::endl;
-    std::cout <<"| " <<  board[6] << "  |  " << board[7] << "  |  " << board[8]  << "  |"<< std::endl;
-    std::cout << "------------------" << std::endl;
+using namespace std;
+
+void drawBoard(string board){
+    cout <<"------------------" << endl;
+    cout <<"| " <<  board[0] << "  |  " << board[1] << "  |  " << board[2] << "  |" << endl;
+    cout <<  "-----|-----|------" << endl;
+    cout <<"| " <<  board[3] << "  |  " << board[4] << "  |  " << board[5]  << "  |"<< endl;
+    cout << "-----|-----|------" << endl;
+    cout <<"| " <<  board[6] << "  |  " << board[7] << "  |  " << board[8]  << "  |"<< endl;
+    cout << "------------------" << endl;
 
 }
 
 int playerMove(char *board, char player){
-    std::cout << "Player move: " ;
+    cout << "Player move: " ;
     int play;
-    std::cin >> play;
+	cin >> play;
     play--;
 
 
     if (play < 0 && play > 9){
-        std::cout << "Enter a number between 1 and 9: " << '\n';
+        cout << "Enter a number between 1 and 9: " << '\n';
     }
     else{
         if (board[play] = ' '){
@@ -35,7 +37,7 @@ int playerMove(char *board, char player){
 
 }
 int computerMove(char *board, char computer){
-    int cplay = (rand() % 8) + 1;
+    int cplay = rand()% 8 + 1;
     if (board[cplay] == ' '){
         board[cplay] = computer;
     }
@@ -50,35 +52,35 @@ int computerMove(char *board, char computer){
 
 int checkWinner(char *board, char player, char computer){
     if (board[0] != ' ' && board[0] == board[1] && board[1]== board[2]){
-        board[0] == player ? std::cout << "Winner is Player: " << player << "!" << '\n' << '\n': std::cout << "Winner is Player: " << computer<< "!" << '\n' << '\n';
+        board[0] == player ? cout << "Winner is Player: " << player << "!" << '\n' << '\n': cout << "Winner is Player: " << computer<< "!" << '\n' << '\n';
 
     }
     else if (board[3] != ' ' && board[3] == board[4] && board[4] == board[5]){
-        board[0] == 'X' ? std::cout << "Winner is Player: " << player << "!" << '\n' << '\n': std::cout << "Winner is Player: " << computer<< "!" << '\n' <<  '\n';
+        board[0] == 'X' ? cout << "Winner is Player: " << player << "!" << '\n' << '\n': cout << "Winner is Player: " << computer<< "!" << '\n' <<  '\n';
 
     }
     else if (board[6] != ' ' && board[6] == board[7] && board[7] == board[8]){
-        board[0] == 'X' ? std::cout << "Winner is Player: " << player << "!" << '\n' << '\n': std::cout << "Winner is Player: " << computer<< "!" << '\n' << '\n';
+        board[0] == 'X' ? cout << "Winner is Player: " << player << "!" << '\n' << '\n': cout << "Winner is Player: " << computer<< "!" << '\n' << '\n';
 
     }
     else if (board[0] != ' ' && board[0] == board[3] && board[3] == board[6]){
-        board[0] == player ? std::cout << "Winner is Player: " << player << "!" << '\n' << '\n': std::cout << "Winner is Player: " << computer<< "!" << '\n' << '\n';
+        board[0] == player ? cout << "Winner is Player: " << player << "!" << '\n' << '\n': cout << "Winner is Player: " << computer<< "!" << '\n' << '\n';
 
     }
     else if (board[1] != ' ' && board[1] == board[4] && board[4] == board[7]){
-        board[0] == player ? std::cout << "Winner is Player: " << player << '\n' << '\n': std::cout << "Winner is Player: " << computer<< "!" << '\n' << '\n';
+        board[0] == player ? cout << "Winner is Player: " << player << '\n' << '\n': cout << "Winner is Player: " << computer<< "!" << '\n' << '\n';
 
     }
     else if (board[2] != ' ' && board[2] == board[5] && board[5] == board[8]){
-        board[0] == player ? std::cout << "Winner is Player: " << player << "!" << '\n' << '\n': std::cout << "Winner is Player: " << computer<< "!" << '\n' << '\n';
+        board[0] == player ? cout << "Winner is Player: " << player << "!" << '\n' << '\n': cout << "Winner is Player: " << computer<< "!" << '\n' << '\n';
 
     }
     else  if (board[0] != ' ' && board[0] == board[4] && board[4] == board[8]){
-        board[0] == player ? std::cout << "Winner is Player: " << player << "!" << '\n' << '\n': std::cout << "Winner is Player: " << computer<< "!" << '\n' << '\n';
+        board[0] == player ? cout << "Winner is Player: " << player << "!" << '\n' << '\n': cout << "Winner is Player: " << computer<< "!" << '\n' << '\n';
 
     }
     else if (board[2] != ' ' && board[2] == board[4] && board[4] == board[6]){
-        board[0] == player ? std::cout << "Winner is Player: " << player << "!" << '\n' << '\n': std::cout << "Winner is Player: " << computer<< "!" << '\n' << '\n';
+        board[0] == player ? cout << "Winner is Player: " << player << "!" << '\n' << '\n': cout << "Winner is Player: " << computer<< "!" << '\n' << '\n';
 
     }
     else{
