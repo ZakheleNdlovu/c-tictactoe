@@ -31,7 +31,7 @@ int playerMove(char *board, char player){
             board[play] = player;
         }
         else{
-            std::cout << "Spot already taken";
+            cout << "Spot already taken";
         }
     }
 
@@ -99,12 +99,12 @@ int main(){
     char computer = 'O';
     bool running = true;
 
-    std::cout << "-------------------" << '\n';
-    std::cout << "*  TIC  TAC  TOE  *" << '\n';
-    std::cout << "-------------------" << '\n';
-    std::cout << "" << '\n';
+    cout << "-------------------" << '\n';
+    cout << "*  TIC  TAC  TOE  *" << '\n';
+    cout << "-------------------" << '\n';
+    cout << "" << '\n';
     drawBoard(board1);
-    std::cout << "Choose a number between 1 and 9" << '\n';
+    cout << "Choose a number between 1 and 9" << '\n';
     drawBoard(board);
     while(running){
         playerMove(board, player);
